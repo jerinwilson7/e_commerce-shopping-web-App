@@ -32,5 +32,9 @@ FEATURES
 
 Contributing
 
-Contributions are welcome! Please create an issue or pull request with any contributions.   
+Contributions are welcome! Please create an issue or pull request with any contributions.      
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for more information.
 
