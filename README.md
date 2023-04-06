@@ -1,17 +1,20 @@
 # e_commerce-shopping-web-App   
-README for Node.js e-commerce shopping cart with MongoDB and Express
 
 This is an e-commerce shopping cart application built using Node.js, MongoDB, and Express. The application allows users to browse products, add them to their cart, and place orders.
 
 Getting Started
 
 To get started, follow these step:  
-1.Clone the repository:"https://github.com/jerinwilson7/e_commerce-shopping-web-App.git" 
-2.Install dependencies: npm install 
-3.Create a .env file in the root directory of the project.  
-4.Start the application: 'npm start'.  
 
-FEATURES
+1.Clone the repository:"https://github.com/jerinwilson7/e_commerce-shopping-web-App.git"    
+
+2.Install dependencies: npm install 
+
+3.Create a .env file in the root directory of the project.  
+
+4.Start the application: 'npm start'.      
+
+FEATURES    
 
 1.Browse products: Users can browse all products available for sale.
 
@@ -25,7 +28,7 @@ FEATURES
 
 6.View orders: Users can view all their past orders.
 
-7.Payment Gateway: Users can use the payment gateway to pay for the products.  
+7.Payment Gateway(Razorpay): Users can use the payment gateway to pay for the products.  
 
 Contributing
 
