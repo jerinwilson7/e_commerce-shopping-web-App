@@ -1,0 +1,92 @@
+<section>
+    <div class="container">
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <td><img style="width:70px; height: 70px;" src="/product-images/{{this.product._id}}.jpg" alt=""></td>
+                    <td>{{this.product.Name}}</td>
+                    <td>Rs{{this.product.Price}}</td>
+                    <td>
+                        <button class="btn btn-primary cart-items-count mr-3" id="decrement-btn" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button> 
+                        <span id ="{{this.product._id}}">  {{this.quantity}} </span> 
+                        <button class="btn btn-primary cart-items-count mr-3" onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)" >+</button>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-danger" onclick="removeItem('{{this._id}}','{{this.product.id}}')">Remove</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <hr>
+        <div class="float-right pr-5">
+            <h3 style="margin-left: 800px;" >Rs. <span id="total">{{totalValue}}</span> </h3><br>
+            <a href="/place-order" class="btn btn-success mt-3" style="width: 15%; margin-left: 800px;"><b>Place Order</b></a>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    function changeQuantity(cartId,proId,userId,count){ 
+        console.log("changeQuantity invoked")                             //count is know which btn is pressed +1 or -1
+        let quantity = parseInt(document.getElementById(proId).innerHTML)
+        count = parseInt(count)
+        
+        $.ajax({                                                        //ajax is used when the btn is pressed action is done without refreshing the page
+            url:'/change-product-quantity',
+            data:{  
+            user: userId,                                    //data should be passed and it is the req.body inside changeProductQuantity
+            cart: cartId,
+            product: proId,
+            count: count,
+            quantity: quantity
+            },
+            method:'post',
+            success:(response)=>{
+                if(response.removeProduct){
+                    alert("Product Removed from the Cart")
+                    location.reload()
+                }
+                else{
+                    document.getElementById(proId).innerHTML=quantity+count
+                    document.getElementById('total').innerHTML=response.total
+                }
+            }
+        })
+    } 
+
+
+    {{!-- function removeItem(cartId,proId){
+       // console.log(proId)
+        console.log("remove function Invoked")
+        $.ajax({
+            url:'/remove-item',
+            data:{
+                cart:cartId,
+                product:proId
+            },
+            method:'post',
+            success:(response)=>{
+                if(response.status){
+                     let value = confirm('Product will be removed from cart');
+                if(value=='true'){
+                    document.getElementById(`product-${proId}`).remove();
+                }
+                }
+            }
+        })
+    } --}}
+          
+  
+
+</script>

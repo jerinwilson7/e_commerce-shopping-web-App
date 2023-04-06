@@ -1,0 +1,27 @@
+{
+  "name": "paytm-nodejs",
+  "version": "1.0.0",
+  "description": "Nodejs wrapper for Paytm Payment Gateway",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imashishjoshi/paytm-nodejs.git"
+  },
+  "keywords": [
+    "paytm",
+    "nodejs",
+    "express"
+  ],
+  "author": "Ashish Joshi <imashishjoshi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imashishjoshi/paytm-nodejs/issues"
+  },
+  "homepage": "https://github.com/imashishjoshi/paytm-nodejs#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
