@@ -5,12 +5,12 @@ var productHelpers = require('../helpers/product-helpers')
 const userHelpers = require('../helpers/user-helpers')
 
 const verifyLogin = (req,res,next)=>{
-  if(req.session.usetrLoggedIn){
+  if(req.session.userLoggedIn){
     next()
   }
   else {
     res.redirect('/login')
-  }
+  } 
 }
 
 /* GET home page. */
@@ -158,5 +158,6 @@ router.post('/verify-payment',(req,res)=>{
     res.json({status:false,errmsg:''})
   })
 })
+
 
 module.exports = router;
